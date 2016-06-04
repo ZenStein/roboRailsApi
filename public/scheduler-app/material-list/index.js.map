@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/demo-app/scheduler-app/material-list/index.ts"],"names":[],"mappings":";AAAA,wCAAwC,2BAA2B,CAAC;AAA3D,oFAA2D","sourcesContent":["export { CsMaterialListComponent } from './material-list.component';\n"]}

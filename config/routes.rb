@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'categories#index'
+  #root 'categories#index'
+          # root :controller => 'static', :action => '/' 
+          # above does same as below.
+          root :controller => 'static', :action => '/public/index.html'
+#  root 'categories#retester'
   resources :categories do
     resources :items
   end

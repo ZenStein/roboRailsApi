@@ -1,0 +1,24 @@
+
+<style>
+.isselected{
+background-color:lightblue;
+}
+.dragged-over{
+background-color: white;
+}
+.cursorcopy{
+cursor:copy;
+}
+li{
+text-align:center;
+font-size:36;
+font-letter-spacing:4px;
+    text-decoration: underline:
+        font-size-adjust:2;
+            height: 60px;
+}
+</style>
+<li  class="noselect" csSelected  [ngClass]="{isselected: selected}" (dropspotvalid)="ondropspotvalid($event)"
+    (selectiontoggle)="onselectiontoggle($event)"  id="{{uid}}_{{index}}" csDragger >
+    {{viewText | prettyHousekeepingAssignments }}
+</li>

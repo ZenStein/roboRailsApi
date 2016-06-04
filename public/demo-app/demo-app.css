@@ -1,0 +1,26 @@
+.demo-root {
+  font-family: Roboto, 'Helvetica Neue', sans-serif; }
+  .demo-root * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+  .demo-root md-sidenav {
+    min-width: 15%; }
+    .demo-root md-sidenav [md-button] {
+      width: 100%;
+      position: relative;
+      bottom: 0;
+      margin: 24px 0; }
+  .demo-root .demo-content {
+    padding: 32px; }
+  .demo-root md-toolbar md-icon {
+    cursor: pointer; }
+  .demo-root md-toolbar .demo-toolbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%; }
+  .demo-root h1 {
+    font-size: 20px; }

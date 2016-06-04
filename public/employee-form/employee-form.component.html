@@ -1,0 +1,44 @@
+
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">New Employee</md-toolbar>
+  <md-card-content>
+    <form>
+
+      <table style="width: 100%" cellspacing="0"><tr>
+        <td><md-input placeholder="First name" style="width: 100%"></md-input></td>
+        <td><md-input placeholder="Last name" style="width: 100%"></md-input></td>
+      </table>
+      <p>
+        <md-input class="demo-full-width" placeholder="Address" value=""></md-input>
+        <md-input class="demo-full-width" placeholder="Address 2"></md-input>
+      </p>
+      <table style="width: 100%" cellspacing="0"><tr>
+        <td><md-input class="demo-full-width" placeholder="City" value="Mountain View"></md-input></td>
+        <td><md-input class="demo-full-width" placeholder="State" maxLength="2" value="CA"></md-input></td>
+        <td><md-input #postalCode class="demo-full-width" maxLength="5"
+                      placeholder="Postal Code"
+                      value="">
+          <md-hint align="end">{{postalCode.characterCount}} / 5</md-hint>
+        </md-input></td>
+      </tr>
+      
+    <md-input placeholder="hourly rate" align="end">
+      <span md-prefix>$&nbsp;</span>
+      <span md-suffix>.00</span>
+    </md-input>
+<div>Department
+    <ul>
+      <li *ngFor="let dep of departments;">
+        <md-checkbox>
+          {{dep.department}}
+        </md-checkbox>
+      </li>
+    </ul>
+</div>
+      </table>
+    </form>
+  </md-card-content>
+</md-card>
+
+
+

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/demo-app/scheduler-app/index.ts"],"names":[],"mappings":";AAAA,sCAAoC,yBAAyB,CAAC;AAAtD,8EAAsD","sourcesContent":["export {RoboRenG2AppComponent} from './robo-ren-g2.component';\n"]}
