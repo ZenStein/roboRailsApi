@@ -1,0 +1,34 @@
+import { OnInit } from '@angular/core';
+import { ListModelService } from './list-model.service';
+export declare class RoboRenG2AppComponent implements OnInit {
+    title: string;
+    isValidDrop: boolean;
+    canDropToList: boolean;
+    theDragged: any;
+    modelService: any;
+    listsData: any;
+    selectionMarker: any;
+    constructor(modelServ: ListModelService);
+    onDrag(ev: any): void;
+    ngOnInit(): void;
+    onDragStart(ev: any): void;
+    onDragEnter(ev: any): void;
+    onDragOver(ev: any): void;
+    onDragLeave(ev: any): void;
+    onDrop(ev: any): void;
+    onDragEnd(ev: any): boolean;
+    selectionMade(data: any): void;
+    whichList(listUid: any): any;
+    whichIndex(listUid: any): any;
+    setIsValidDrop(validation: any): void;
+    setCanDropToList(ev: any): void;
+    addList(ev: any): void;
+    refreshAllAssignments(ev: any): void;
+    tiles: any[];
+    fixedCols: number;
+    fixedRowHeight: number;
+    ratioGutter: number;
+    fitListHeight: string;
+    ratio: string;
+    addTileCols(): void;
+}

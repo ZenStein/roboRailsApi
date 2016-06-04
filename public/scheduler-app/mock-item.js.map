@@ -1,0 +1,1 @@
+{"version":3,"file":"mock-item.js","sourceRoot":"","sources":["../src/demo-app/scheduler-app/mock-item.ts"],"names":[],"mappings":";AACC;IAAA;IAID,CAAC;IAAD,mBAAC;AAAD,CAAC,AAJA,IAIA;AAJa,oBAAY,eAIzB,CAAA","sourcesContent":["\n export class ItemTemplate{\n    viewText: string;\n    uid: string;\n    selected: boolean\n}\n"]}
