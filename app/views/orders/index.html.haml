@@ -1,0 +1,23 @@
+%h1
+  Welcome #{@user.first_name} #{@user.last_name}
+- @user.orders.each do |order|
+  - items_order = ItemsOrder.where(order_id: order.id)
+  %h4
+    - datetime = order.created_at
+    Order:
+    = datetime.strftime("%m-%d-%Y %H:%M:%S")
+  - total = 0  
+  - items_order.each do |order_rel|
+    - item = Item.find(order_rel.item_id)
+    - total += item.price * order_rel.quantity
+    %p
+      %strong
+        Item Name:
+      = item.name
+    %p
+      %strong
+        Item Quantity:
+      = order_rel.quantity
+  %p
+    %strong
+      = number_to_currency(total, unit: '$')

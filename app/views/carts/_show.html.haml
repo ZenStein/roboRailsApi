@@ -1,0 +1,35 @@
+%div.cart-elements
+  - total = 0
+  - @cart.each do |id, quantity|
+    - item = Item.find(id)
+    - total += quantity * item.price
+    %p
+      %strong
+        = item.name
+    %p
+      = item.description
+    %p
+      = number_to_currency(item.price, unit: '$')
+    %p
+      Available Stock:
+      = item.quantity
+    %p
+      Quantity:
+      = quantity
+    %p
+      %form{:action => "/carts/#{item.id}", :method => 'post'}
+        Quantity:
+        %input{:type => "text", :name => "quantity", :placeholder => '1'}
+          %br
+            %input.btn.btn-danger{:type => "submit", :value => "Update Order Quantity"}
+              %input{:type => "hidden", :name => "_method", :value => 'put'}
+
+  %p
+    - if flash[:insufficient_items]
+      %strong
+        = flash[:insufficient_items]
+  %h3
+    Total:
+    = number_to_currency(total, unit: '$')
+  %p
+    = button_to 'Checkout', orders_path,{:method => :post, :class => 'btn btn-danger edit-button'}

@@ -1,0 +1,39 @@
+         %li.nav-item.active
+            %a.nav-link{:href => "/"} Home
+          %li.nav-item
+            %a.nav-link{:href => "/secret"} Secret Area
+          - if is_admin?  
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Admin Controls
+                %span 
+              %ul.dropdown-menu
+                %li
+                  = link_to('Send Email',test_email_path)
+                %li
+                  %a{:href => "#"} Reports
+                %li
+                %li.divider{:role => "separator"}
+                %li.dropdown-header Categories
+                %li
+                  = link_to('Category List', root_path)
+                %li
+                  = link_to('Create New Category', new_category_path)
+          / If user logged in and there is a session id then show below
+          - if session[:user_id]
+            %li.nav-item
+              = link_to 'Logout', sessions_path, method: :delete, class: 'nav-link btn btn-group'
+            %li.nav-item
+              %a.nav-link{ :id => 'cart_modal_btn'}
+                Cart
+          - else
+            %li.nav-item
+              %a.nav-link{:href => "/users/new"} Register
+            %li.nav-item
+              %a.nav-link{:href => "/sessions/new" } Login
+          / if there is a session id then display user info
+          - if current_user
+            %li.nav-item
+              %a.nav-link{:href => "/users/#{current_user.id}"}
+                %span.glyphicon.glyphicon-user{"aria-hidden" => "true"}
+      / /.navbar-collapse

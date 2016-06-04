@@ -1,0 +1,18 @@
+
+%div.container
+  %h1
+    = @item.name
+  %img.col-md-4.col-md-offset-2{ :src => @item.image_url, :width => "300"}
+  %div.col-md-4.product-details-list
+    %h2
+      %strong
+      = @item.price
+    %p
+      = @item.description
+    %p
+      %form{:action => "/carts/#{@item.id}", :method => 'post'}
+        Quantity:
+        %input{:type => "text", :name => "quantity", :value => '1'}
+          %br
+            %input.btn.btn-danger{:type => "submit", :value => "Add to Cart"}
+

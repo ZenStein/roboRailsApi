@@ -1,0 +1,25 @@
+%h1
+  Current Information for
+  %span.txt-uppercase= @user['first_name']
+%hr
+  .bs-example{"data-example-id" => "table-within-panel"}
+    .panel.panel-default
+      .panel-heading 
+      .panel-body
+        %table.table.font-black
+          %thead
+            %tr
+              %th #
+              %th First Name
+              %th Last Name
+              %th Email Address
+              %th Registered At
+              %th Updated At
+          %tbody
+            %tr     
+              %th #
+              %th= @user['first_name']
+              %th= @user['last_name']
+              %th= @user['email']
+              %th= @user['created_at']
+              %th= @user['updated_at']           

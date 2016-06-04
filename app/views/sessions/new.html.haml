@@ -1,0 +1,21 @@
+%h1 User Login
+%hr
+  / Display Error
+  - if @error
+    .alert.alert-danger.alert-dismissible{:role => "alert"}
+      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+        %span{"aria-hidden" => "true"} &times;
+      %strong Snapps!
+      = @error
+  %form{:action => "/sessions/new", :method => "POST"}
+    .form-group.row
+      %label.col-sm-2.form-control-label{:for => "inputEmail3"} Email
+      .col-sm-10
+        %input#email.form-control{:name => "email", :placeholder => "Email", :required => "", :type => "email"}
+    .form-group.row
+      %label.col-sm-2.form-control-label{:for => "inputPassword3"} Password
+      .col-sm-10
+        %input#inputPassword3.form-control{:name => "password_plaintext", :placeholder => "Password", :required => "", :type => "password"}
+    .form-group.row
+      .col-sm-offset-2.col-sm-10
+        %button.btn.btn-secondary{:type => "submit"} Sign in

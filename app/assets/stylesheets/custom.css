@@ -1,0 +1,44 @@
+.font-black{
+  color: black;
+}
+.txt-uppercase{
+  text-transform: capitalize;
+}
+
+.modal-open .navbar-fixed-top {
+ padding-right: 12px;
+}
+
+.big-bold{
+  font-size: 200%;
+  font-weight: bold;
+}
+.space-left{
+  margin-left: 20px;
+}
+/* a.btn.btn-group:hover {
+    background-color: transparent;
+}
+ */
+/*nav ul li a{
+  background-color:transparent;
+  color:grey; 
+
+}
+#navbar a:hover{
+  background-color: #373a3c;
+  color:whitesmoke;
+}*/
+
+nav{
+  margin-bottom: 100px;
+}
+h1[class*='category-name']{
+  text-align: center;
+}
+.cart-header{
+  background-color: #c1c1c1;
+}
+.fnt-bold{
+  font-weight: bold;
+}

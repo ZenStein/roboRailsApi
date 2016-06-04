@@ -1,0 +1,8 @@
+%h1 Create a New Category!
+= form_for @category, :html => {:class => " form-horizontal"} do |f|
+  %fieldset.form-group
+    = f.label :name_of_category, class: "col-md-4 control-label"
+    .col-md-6
+      = f.text_field :name, class: "form-control"
+  .color
+  = f.submit

@@ -1,0 +1,53 @@
+    %nav.navbar.navbar-dark.bg-inverse    
+      .navbar-header
+        %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand.txt-uppercase{:href => "/"} 
+          - if current_user
+            = current_user.first_name
+          - else
+            Guest
+      #navbar.navbar-collapse.collapse
+        %ul.nav.navbar-nav
+          %li.active
+            %a{:href => "/"} Home
+          %li
+            %a{:href => "/secret"} Secret Area
+          - if is_admin?  
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Admin Controls
+                %span 
+              %ul.dropdown-menu
+                %li
+                  = link_to('Send Email',test_email_path)
+                %li
+                  %a{:href => "#"} Reports
+                %li
+                %li.divider{:role => "separator"}
+                %li.dropdown-header Categories
+                %li
+                  = link_to('Category List', root_path)
+                %li
+                  = link_to('Create New Category', new_category_path)
+          / If user logged in and there is a session id then show below
+          - if session[:user_id]
+            %li
+              = link_to 'Logout', sessions_path, method: :delete, class: 'btn btn-group'
+            %li
+              %a{ :id => 'cart_modal_btn'}
+                Cart
+          - else
+            %li
+              %a{:href => "/users/new"} Register
+            %li
+              %a{:href => "/sessions/new" } Login
+          / if there is a session id then display user info
+          - if current_user
+            %li
+              %a{:href => "/users/#{current_user.id}"}
+                %span.glyphicon.glyphicon-user{"aria-hidden" => "true"}
+      / /.navbar-collapse

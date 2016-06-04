@@ -1,0 +1,24 @@
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-3 Chris Commerce
+    %p.lead  The way online shopping will be.
+    - if is_admin?  
+      %span.nav-item.dropdown.pull-right
+        %a.dropdown-toggle.text-info{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"} Admin Controls
+        .dropdown-menu
+          %a.dropdown-item{:href => "#"} Action
+          %a.dropdown-item{:href => "#"} Another action
+          %a.dropdown-item{:href => "#"} Something else here
+          .dropdown-divider
+          = link_to('Send Email',test_email_path, {:class => "dropdown-item"})        
+          = link_to('Create Category',new_category_path, {:class => "text-success dropdown-item"})          
+.row
+  - @categories.each do |cat|
+    .col-xs-8.col-xs-offset-2.col-sm-4.col-sm-offset-0
+      %figure.figure.text-center
+        %a{:href => category_path(cat.id)} 
+          = image_tag("holder.jpg", style: "width:100%; height:100%", alt: "Edit Entry")
+        %h1.display-4.category-name
+          = cat.name.length > 10 ? cat.name.slice!(0, 10).insert(-1,'..') : cat.name
+
+

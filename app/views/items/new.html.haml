@@ -1,0 +1,24 @@
+%h1 Create a New Item!
+= form_for [@category, @item] , :html => {:class => " form-horizontal"} do |f|
+  %fieldset.form-group
+    = f.label :name, class: "col-md-4 control-label"
+    .col-md-6
+      = f.text_field :name, class: "form-control"
+  %fieldset.form-group
+    = f.label :description, class: "col-md-4 control-label"
+    .col-md-6
+      = f.text_field :description, class: "form-control"
+  %fieldset.form-group
+    = f.label :price, class: "col-md-4 control-label"
+    .col-md-6
+      = f.text_field :price, class: "form-control"
+  %fieldset.form-group
+    = f.label :quantity, class: "col-md-4 control-label"
+    .col-md-6
+      = f.text_field :quantity, class: "form-control"
+  %fieldset.form-group
+    = f.label :image_url, class: "col-md-4 control-label"
+    .col-md-6
+      = f.text_field :image_url, class: "form-control"
+  .color
+  = f.submit

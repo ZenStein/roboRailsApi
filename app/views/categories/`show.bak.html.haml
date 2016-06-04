@@ -1,0 +1,34 @@
+-if is_admin?
+  = button_to('Add Item',new_category_item_path(@category.id),{:class => 'btn btn-default', :method => 'get'})
+%table.table-hover.table-responsive{:style => "width:100%"}
+  %tr
+    %th.title.col-md-2
+    %th.title.col-md-2
+      %h3 Title
+    %th.title.col-md-2
+      %h3 Stock
+    %th.title.col-md-2
+      %h3 Price
+    %th.title.col-md-2
+  %tr
+    - @category.items.each do |product|
+      %tr
+        %td
+          %a{ href: category_item_path(@category, product) }
+            %img{ :src => product.image_url, :width => "300"}
+        %td
+          %h4.title
+            %a{ href: category_item_path(@category, product) }
+              = product.name
+        %td
+          %h4.title
+            = product.quantity
+        %td
+          %h4.title
+            = product.price
+        %td
+          =link_to 'Add To Cart', '#', :onclick => 'addItemToCart(this)', :item_id => product.id            
+      - if is_admin?
+        %td
+          = button_to 'Edit', edit_category_item_path(@category.id, product.id),{:method => :get, :class => 'btn btn-danger edit-button'}
+          = button_to 'Delete', category_item_path(@category.id, product.id),{:method =>:delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger delete-button"}

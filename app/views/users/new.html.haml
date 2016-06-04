@@ -1,0 +1,30 @@
+%h1 User Login
+%hr
+  / Display Error
+  - if flash[:errors]
+    - flash[:errors].each do |message_type, message|
+      %div{:class => "alert alert-#{message_type} alert-dismissible", :role => "alert"}
+        %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+        %strong
+          = message
+  %form{:action => "/users", :method => "POST"}
+    .form-group.row
+      %label.col-sm-2.form-control-label{:for => "inputFirstName"} First Name
+      .col-sm-10
+        %input#first_name.form-control{:name => "user[first_name]", :placeholder => "First Name", :required => "", :type => "text", :value => @user.try(:first_name)}
+    .form-group.row
+      %label.col-sm-2.form-control-label{:for => "inputLastName"} Last Name
+      .col-sm-10
+        %input#last_name.form-control{:name => "user[last_name]", :placeholder => "Last Name", :required => "", :type => "text", :value => @user.try(:last_name)}
+    .form-group.row
+      %label.col-sm-2.form-control-label{:for => "inputEmail3"} Email
+      .col-sm-10
+        %input#email.form-control{:name => "user[email]", :placeholder => "Email", :required => "", :type => "email", :value => @user.try(:email)}
+    .form-group.row
+      %label.col-sm-2.form-control-label{:for => "inputPassword3"} Password
+      .col-sm-10
+        %input#inputPassword3.form-control{:name => "user[password]", :placeholder => "Password", :required => "", :type => "password"}
+    .form-group.row
+      .col-sm-offset-2.col-sm-10
+        %button.btn.btn-secondary{:type => "submit"} Sign in

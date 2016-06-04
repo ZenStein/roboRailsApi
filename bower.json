@@ -1,0 +1,21 @@
+{
+  "name": "commerce_site",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ZenStein/rails-online-shop-challenge",
+  "authors": [
+    "ZenStein <shaneenterprises@gmail.com>"
+  ],
+  "description": "Phase 3 DBC project",
+  "keywords": [
+    "ecommerce"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower_components",
+    "test",
+    "tests"
+  ]
+}

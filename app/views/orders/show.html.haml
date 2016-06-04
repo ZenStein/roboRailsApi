@@ -1,0 +1,21 @@
+%h1
+  Thank You For Your Order!
+%p
+  - @checkout = ItemsOrder.where(order_id: @order.id)
+  - total = 0
+  - @checkout.each do |item|
+
+    %p
+      - namey = Item.find(item.item_id)
+      = namey.name
+    %p
+      Price:
+      = number_to_currency(namey.price, unit: '$')
+    %p
+      Quantity:
+      = item.quantity
+    - total += namey.price * item.quantity
+  %p
+    %strong
+      Total:
+      = number_to_currency(total, unit: '$')
